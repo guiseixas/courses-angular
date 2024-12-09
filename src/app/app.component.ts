@@ -7,7 +7,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   standalone: true,
-  imports: [MatToolbarModule, RouterOutlet],
+  imports: [
+    MatToolbarModule,
+    RouterOutlet
+  ]
 })
 export class AppComponent {
   title = 'courses-angular';

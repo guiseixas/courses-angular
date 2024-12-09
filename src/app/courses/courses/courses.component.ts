@@ -1,19 +1,25 @@
-import { Component } from '@angular/core';
-import { MatTableModule } from '@angular/material/table';
+import { Component, OnInit } from '@angular/core';
 import { Course } from '../models/course';
+import { AppMaterialModule } from '../../shared/app-material/app-material.module';
+import { CoursesService } from '../services/courses.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-courses',
-  imports: [MatTableModule],
+  imports: [
+    AppMaterialModule
+  ],
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.scss'
 })
-export class CoursesComponent {
+export class CoursesComponent implements OnInit {
 
-  courses: Course[] = [
-    { _id: 1, name: 'Angular', category: 'front-end' }
-  ];
-  displayedColumns = ['_id', 'name', 'category'];
+  courses: Course[];
+  displayedColumns = ['id', 'name', 'category'];
 
-  constructor() {}
+  constructor(private courseService: CoursesService) {
+    this.courses = this.courseService.list();
+  }
+
+  ngOnInit(): void {}
 }
