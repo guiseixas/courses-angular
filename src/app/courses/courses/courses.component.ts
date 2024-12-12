@@ -5,11 +5,13 @@ import { AppMaterialModule } from '../../shared/app-material/app-material.module
 import { CoursesService } from '../services/courses.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from '../../shared/components/error-dialog/error-dialog.component';
+import { SharedModule } from '../../shared/shared.module';
 
 @Component({
   selector: 'app-courses',
   imports: [
-    AppMaterialModule
+    AppMaterialModule,
+    SharedModule
   ],
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.scss'
